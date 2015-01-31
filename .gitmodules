@@ -1,0 +1,3 @@
+[submodule "web-components-demos"]
+	path = web-components-demos
+	url = https://github.com/alice/web-components-demos.git
