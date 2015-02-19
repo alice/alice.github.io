@@ -1,3 +1,6 @@
 [submodule "web-components-demos"]
 	path = web-components-demos
 	url = https://github.com/alice/web-components-demos.git
+[submodule "friendpurr"]
+	path = friendpurr
+	url = https://github.com/alice/friendpurr.git
