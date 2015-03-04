@@ -4,6 +4,3 @@
 [submodule "friendpurr"]
 	path = friendpurr
 	url = https://github.com/alice/friendpurr.git
-[submodule "webcomponents-csun15"]
-	path = webcomponents-csun15
-	url = https://github.com/karlgroves/webcomponents-csun15.git
