@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>is= demos</title>
+  <link rel="stylesheet" href="is.css">
+</head>
+<body>
+  <template id="GenericTemplate">
+    <shadow></shadow>
+    <content></content>
+  </template>
+
+  <table>
+    <tr>
+      <td></td>
+      <th>Plain</th>
+      <th>With shadowRoot</th>
+    </tr>
+    <tr>
+      <th>Text Input</th>
+      <td><input type="text"></td>
+      <td><input is="x-text" type="text" ></input></td>
+    </tr>
+    <tr>
+      <th>File Input</th>
+      <td><input type="file"></td>
+      <td><input is="x-file" type="file"></input></td>
+    </tr>
+    <tr>
+      <th>Date Input</th>
+      <td><input type="date"></input></td>
+      <td><input is="x-date" type="date"></input></td>
+    </tr>
+    <tr>
+      <th>Submit Input</th>
+      <td><input type="submit"></input></td>
+      <td><input is="x-submit" type="submit"></input></td>
+    </tr>
+    <tr>
+      <th>Button Input</th>
+      <td><input type="button"></input></td>
+      <td><input is="x-button-input" type="button"></input></td>
+    </tr>
+    <tr>
+      <th>Checkbox Input</th>
+      <td><input type="checkbox"></input></td>
+      <td><input is="x-checkbox" type="checkbox"></input></td>
+    </tr>
+    <tr>
+      <th>Radio Input</th>
+      <td><input type="radio"></input></td>
+      <td><input is="x-radio" type="radio"></input></td>
+    </tr>
+    <tr>
+      <th>Range Input</th>
+      <td><input type="range" value=5 min=0 max=10></input></td>
+      <td><input is="x-range" type="range" value=5 min=0 max=10></input></td>
+    </tr>
+    <tr>
+      <th>Button</th>
+      <td><button></button></td>
+      <td><button is="x-button"></button></td>
+    </tr>
+    <tr>
+      <th>Anchor/link</th>
+      <td><a href="#">Link</a></td>
+      <td><a href="#" is="x-a">Link</a></td>
+    </tr>
+    <tr>
+      <th>Text Area</th>
+      <td><textarea></textarea></td>
+      <td><textarea is="x-textarea"></textarea></td>
+    </tr>
+    <tr>
+      <th>Image</th>
+      <td><img src="http://static.jsbin.com/images/default-avatar.min.svg"></td>
+      <td><img is="x-img" src="http://static.jsbin.com/images/default-avatar.min.svg"></td>
+    </tr>
+    <tr>
+      <th>Canvas</th>
+      <td><canvas></canvas></td>
+      <td><canvas is="x-canvas"></canvas></td>
+    </tr>
+    <tr>
+      <th>Table</th>
+      <td><table>
+        <tr>
+          <th>Header</th>
+        </tr>
+        <tr>
+          <td>Content</td>
+        </tr>
+        </table></td>
+      <td><table is="x-table">
+        <tr>
+          <th>Header</th>
+        </tr>
+        <tr>
+          <td>Content</td>
+        </tr>
+        </table></td>
+    </tr>
+    <tr>
+      <th>Video</th>
+      <td><video controls></video></td>
+      <td><video controls is="x-video"></video></td>
+    </tr>
+    <tr>
+      <th>Audio</th>
+      <td><audio controls></audio></td>
+      <td><audio controls is="x-audio"></audio></td>
+    </tr>
+    <tr>
+      <th>Map</th>
+      <td><map></map></td>
+      <td><map is="x-map"></map></td>
+    </tr>
+  </table>
+    <script src="is.js" type="text/javascript"></script>
+</body>
+</html>

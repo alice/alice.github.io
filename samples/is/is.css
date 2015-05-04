@@ -1,0 +1,16 @@
+body {
+  font-family: Helvetica Neue, sans-serif;
+}
+
+h4 {
+  margin: 0 0 1em 0
+}
+
+section:not(:last-child) {
+  padding: 1em;
+  border-bottom: 1px solid #ccc;
+}
+
+tr {
+  border: 1px solid #ccc;
+}
