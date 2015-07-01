@@ -7,3 +7,6 @@
 [submodule "webcomponents-csun15"]
 	path = webcomponents-csun15
 	url = https://github.com/karlgroves/webcomponents-csun15.git
+[submodule "point-focus"]
+	path = point-focus
+	url = git@github.com:alice/point-focus.git
