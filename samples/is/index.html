@@ -45,13 +45,25 @@
     </tr>
     <tr>
       <th>Checkbox Input</th>
-      <td><input type="checkbox"></input></td>
-      <td><input is="x-checkbox" type="checkbox"></input></td>
+      <td>
+        <div><input type="checkbox" value=1></input></div>
+        <div><input type="checkbox" value=2></input></div>
+      </td>
+      <td>
+        <div><input is="x-checkbox" type="checkbox" value="1"></input></div>
+        <div><input is="x-checkbox" type="checkbox" value="2"></input></div>
+      </td>
     </tr>
     <tr>
       <th>Radio Input</th>
-      <td><input type="radio"></input></td>
-      <td><input is="x-radio" type="radio"></input></td>
+      <td>
+        <div><input type="radio" name="radio" value="1"></input></div>
+        <div><input type="radio" name="radio" value="2"></input></div>
+      </td>
+      <td>
+        <div><input is="x-radio" type="radio" name="x-radio" value="1"></input></div>
+        <div><input is="x-radio" type="radio" name="x-radio" value="2"></input></div>
+      </td>
     </tr>
     <tr>
       <th>Range Input</th>
