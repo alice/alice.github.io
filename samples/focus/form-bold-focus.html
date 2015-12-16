@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+body([modality=keyboard]) :focus {
+    /*outline: -webkit-focus-ring-color auto 5px; or default UA style of your choosing */
+    outline: #FFEB3B auto 5px;
+}
+ 
+body:not([modality=keyboard]) :focus {
+    outline: none;
+}
+p {
+	background-color: #eaeaea;
+    padding: 12px;
+}
+h4 {
+	margin-bottom: 8px;
+}
+input {
+	margin-bottom: 8px;
+}
+button {
+	width: 120px;
+}
+</style>
+
+<h1>Prototype 1: With input modality</h1>
+<p>Please fill out this form.</p>
+
+<h4>Please name any 3 websites for information search.</h4>
+<input type=text supports-modality=keyboard/><br/>
+<input type=text supports-modality=keyboard/><br/>
+<input type=text supports-modality=keyboard/><br/>
+
+<h4>What do you use to communicate with family?</h4>
+<input type="checkbox" name="communicate"/>Phone call<br/>
+<input type="checkbox" name="communicate"/>SMS<br/>
+<input type="checkbox" name="communicate"/>Email<br/>
+<input type="checkbox" name="communicate"/>Instant Messaging<br/>
+<input type="checkbox" name="communicate"/>Facebook<br/>
+
+<h4>How many times a month on average do you shop online?</h4>
+<input type="radio" name="hoursspent"/>Less than once a month<br/>
+<input type="radio" name="hoursspent"/>1-2 times<br/>
+<input type="radio" name="hoursspent"/>3-5 times<br/>
+<input type="radio" name="hoursspent"/>More than 5 times<br/>
+
+<h4>What is today's date?</h4>
+<select>
+<option>Select year</option>
+<option>2010</option>
+<option>2011</option>
+<option>2012</option>
+<option>2013</option>
+<option>2014</option>
+<option>2015</option>
+<option>2016</option>
+<option>2017</option>
+<option>2018</option>
+</select>
+<select>
+<option>Select month</option>
+<option>01</option>
+<option>02</option>
+<option>03</option>
+<option>03</option>
+<option>04</option>
+<option>05</option>
+<option>06</option>
+<option>07</option>
+<option>08</option>
+<option>09</option>
+<option>10</option>
+<option>11</option>
+<option>12</option>
+</select>
+<select>
+<option>Select date</option>
+<option>01</option>
+<option>02</option>
+<option>03</option>
+<option>04</option>
+<option>05</option>
+<option>06</option>
+<option>07</option>
+<option>08</option>
+<option>09</option>
+<option>10</option>
+<option>11</option>
+<option>12</option>
+<option>13</option>
+<option>14</option>
+<option>15</option>
+<option>16</option>
+<option>17</option>
+<option>18</option>
+<option>19</option>
+<option>20</option>
+<option>21</option>
+<option>22</option>
+<option>23</option>
+<option>24</option>
+<option>25</option>
+<option>26</option>
+<option>27</option>
+<option>28</option>
+<option>29</option>
+<option>30</option>
+<option>31</option>
+</select>
+<select>
+<option>Select day</option>
+<option>Monday</option>
+<option>Tuesday</option>
+<option>Wednesday</option>
+<option>Thursday</option>
+<option>Friday</option>
+<option>Saturday</option>
+<option>Sunday</option>
+</select>
+
+<h4>Please name 3 devices you enjoy using.</h4>
+<input type=text supports-modality=keyboard/><br/>
+<input type=text supports-modality=keyboard/><br/>
+<input type=text supports-modality=keyboard/><br/>
+
+<h4>Please select what you search online.</h4>
+<button onclick="if(this.innerHTML=='Recipes') this.innerHTML='&#10003; Recipes';else this.innerHTML='Recipes';">Recipes</button>
+<button onclick="if(this.innerHTML=='Flights') this.innerHTML='&#10003; Flights';else this.innerHTML='Flights';">Flights</button>
+<button onclick="if(this.innerHTML=='Hotels') this.innerHTML='&#10003; Hotels';else this.innerHTML='Hotels';">Hotels</button><br/>
+<button onclick="if(this.innerHTML=='Books') this.innerHTML='&#10003; Books';else this.innerHTML='Books';">Books</button>
+<button onclick="if(this.innerHTML=='Coupons') this.innerHTML='&#10003; Coupons';else this.innerHTML='Coupons';">Coupons</button>
+<button onclick="if(this.innerHTML=='News') this.innerHTML='&#10003; News';else this.innerHTML='News';">News</button>
+
+<br/><br/><br/>
+<button onclick="alert('Thanks for the survey! Please click OK.')">Send this survey</button>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var hadKeyboardEvent = false,
+        keyboardModalityWhitelist = [ "input:not([type])",
+                                      "input[type=text]",
+                                      "input[type=number]",
+                                      "input[type=date]",
+                                      "input[type=time]",
+                                      "input[type=datetime]",
+                                      "textarea",
+                                      "[role=textbox]",
+                                      "[supports-modality=keyboard]"].join(","),
+        matcher = getMatcher();
+
+    disableFocusRingByDefault();
+
+    document.body.addEventListener("keydown", function(e) {
+        hadKeyboardEvent = true;
+        setTimeout(function() { hadKeyboardEvent = false; }, 0);
+    }, true);
+
+    document.body.addEventListener("focus", function(e) {
+        if (hadKeyboardEvent || focusTriggersKeyboardModality(e.target))
+            document.body.setAttribute("modality", "keyboard");
+    }, true);
+
+    document.body.addEventListener("blur", function(e) {
+        document.body.removeAttribute("modality");
+    }, true);
+
+    function disableFocusRingByDefault() {
+        var css = "body:not([modality=keyboard]) :focus { outline: none; }",
+            head = document.head || document.getElementsByTagName("head")[0],
+            style = document.createElement("style");
+
+        style.type = "text/css";
+        style.id = "disable-focus-ring";
+        if (style.styleSheet) {
+            style.styleSheet.cssText = css;
+        } else {
+            style.appendChild(document.createTextNode(css));
+        }
+
+        head.appendChild(style);
+    }
+
+    function getMatcher() {
+        var el = document.body;
+        if (el.matchesSelector)
+            return el.matchesSelector;
+        if (el.webkitMatchesSelector)
+            return el.webkitMatchesSelector;
+        if (el.mozMatchesSelector)
+            return el.mozMatchesSelector;
+        if (el.msMatchesSelector)
+            return el.msMatchesSelector;
+        throw "Couldn't find any matchesSelector method on document.body."
+    }
+
+    function focusTriggersKeyboardModality(el) {
+        return matcher.call(el, keyboardModalityWhitelist);
+    }
+
+});
+
+
+</script>
